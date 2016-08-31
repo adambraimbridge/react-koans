@@ -16,7 +16,7 @@ class TodoList extends React.Component {
 	}
 
 	render() {
-		let tasksComponents = this.state.tasks.map(task => <ListItem task={task}/>);
+		let tasksComponents = this.state.tasks.map((task,i) => <ListItem key="{i}" task={task}/>);
 		return (
 			<div>
 				<ul>{tasksComponents}</ul>
@@ -27,6 +27,6 @@ class TodoList extends React.Component {
 	}
 }
 
-export const ListItem = props => <li>{props.task.name}</li>;
+export const ListItem = props => <li id="{props.key}">{props.task.name}</li>;
 
 export default TodoList;
